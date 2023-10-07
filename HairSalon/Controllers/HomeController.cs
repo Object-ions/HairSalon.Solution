@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace HairSalon.Controllers
 {
-  public class StylistsController : Controller
+  public class HomeController : Controller
   {
     private readonly HairSalonContext _db;
 
-    public StylistsController(HairSalonContext db)
+    public HomeController(HairSalonContext db)
     {
       _db = db;
     }

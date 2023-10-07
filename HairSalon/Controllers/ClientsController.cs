@@ -28,7 +28,7 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      _db.clients.Add(Client);
+      _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
