@@ -1,8 +1,8 @@
 
 
-namespace BestRestaurants.Models
+namespace HairSalon.Models
 {
-  public class Cuisine 
+  public class Stylist 
   {
    
   }
