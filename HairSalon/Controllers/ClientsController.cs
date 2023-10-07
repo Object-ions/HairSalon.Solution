@@ -20,15 +20,15 @@ namespace HairSalon.Controllers
       return View(model);
     }
 
-    public ActionResult Creat()
+    public ActionResult Create()
     {
-      return view();
+      return View();
     }
 
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      _db.clients.Add(client);
+      _db.clients.Add(Client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
