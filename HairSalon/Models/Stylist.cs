@@ -7,5 +7,8 @@ namespace HairSalon.Models
     public int StylistId { get; set; }
     public string Name { get; set; }
     public string Specialty { get; set; }
+
+    // Collection navigation property
+    public List<Client> Clients { get; set; }
   }
 }
