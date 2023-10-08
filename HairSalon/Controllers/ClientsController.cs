@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace HairSalon.Controllers
 {
@@ -61,7 +62,7 @@ namespace HairSalon.Controllers
       return View(thisClient);
     }
 
-    [httpPost, ActionName("Delete")]
+    [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
       Client thisClient = _db.Clients.firstOrDefault(client.ClientId == id);
