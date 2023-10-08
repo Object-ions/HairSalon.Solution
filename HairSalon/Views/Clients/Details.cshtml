@@ -12,7 +12,7 @@
 <br />
 
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h3>@Html.DisplayNameFor(model => model.StylistId): @Html.DisplayFor(model => model.StylistId) - </h3>
+<h3>@Html.DisplayNameFor(model => model.StylistId): @Html.DisplayFor(model => model.StylistId) - @Model.Stylist.Name
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Client's information", "Edit", new { id = Model.ClientId })</p>
