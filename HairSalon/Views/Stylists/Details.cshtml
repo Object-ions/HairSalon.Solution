@@ -9,21 +9,22 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
 
-@if (@Model.Clients.Count == 0)
+@if(Model.Clients.Count != 0)
 {
-  <h3>No clients have been added to this category yet!</h3>
-} 
-else
-{
-  <h3>Clients:</h3>
+  <h3>Here are all of the clients selling this cuisine:</h3>
   <ul>
-    @foreach (Client client in Model.Clients)
+    @foreach(Client client in Model.Clients)
     {
-      <li>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId })</li>
+      <li><h4>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId })</h4></li>
     }
   </ul>
+}
+else
+{
+  <h3>There are no clients for this stylist.</h3>
 }
 
 <p>@Html.ActionLink("Edit stylist information", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete stylist profile", "Delete", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

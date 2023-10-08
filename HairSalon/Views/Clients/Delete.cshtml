@@ -13,4 +13,5 @@
 {
   <input type="submit" value="Delete" />
 }
-@Html.ActionLink("Back to Client's list", "Index")
+<p>@Html.ActionLink("Back to Client", "Details", new {id = Model.ClientId })</p>
+<p>@Html.ActionLink("Back to Client's list", "Index")</p>
