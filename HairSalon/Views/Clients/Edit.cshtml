@@ -3,7 +3,7 @@
 }
 
 @model HairSalon.Models.Client
-
+<div class="container">
 <h2>Edit client's information</h2>
 <h4>Edit @Html.DisplayFor(model => model.Name) information</h4>
 
@@ -16,4 +16,10 @@
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to Client's list", "Index")</p>
+<div class="link-card">
+<p>@Html.ActionLink("Delete client's from the list", "Delete", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>
+
+</div>

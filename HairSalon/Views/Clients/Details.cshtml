@@ -4,16 +4,21 @@
 
 @model HairSalon.Models.Client;
 @using HairSalon.Models;
-
+<div class="container">
 <h2>Client Informaion</h2>
 <hr />
 
-<h2><strong>@Html.DisplayFor(model => model.Name)</strong> - information:</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 <br />
 
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h3>@Html.DisplayNameFor(model => model.StylistId): @Html.DisplayFor(model => model.StylistId) - @Model.Stylist.Name
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+<p>stylist: @Model.Stylist.Name (@Html.DisplayNameFor(model => model.StylistId): @Html.DisplayFor(model => model.StylistId))</p>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div class="link-card">
 <p>@Html.ActionLink("Edit Client's information", "Edit", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Delete client's from the list", "Delete", new { id = Model.ClientId })
+<p>@Html.ActionLink("Delete client's from the list", "Delete", new { id = Model.ClientId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>
+
+</div>

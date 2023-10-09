@@ -4,7 +4,7 @@
 
 @using HairSalon.Models;
 @model HairSalon.Models.Stylist;
-
+<div class="container">
 <h2>Edit Stylist Profile</h2>
 
 <h4>Edit this item: @Html.DisplayFor(model => model.Name)</h4>
@@ -21,4 +21,10 @@
 
     <input type="submit" value="Save" />
 }
+
+<div class="link-card">
 <p>@Html.ActionLink("Back to stylist", "Details", new { id = Model.StylistId})</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>
+
+</div>

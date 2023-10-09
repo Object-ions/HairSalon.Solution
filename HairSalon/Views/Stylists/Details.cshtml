@@ -4,14 +4,14 @@
 
 @model HairSalon.Models.Stylist
 @using HairSalon.Models
-
+<div class="container">
 <h2>Stylist Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+<h3>@Html.DisplayFor(model => model.Name), @Html.DisplayFor(model => model.Specialty)<h3>
 
 @if(Model.Clients.Count != 0)
 {
-  <h3>Here are all of the clients selling this cuisine:</h3>
+  <h3>Here are all of the clients for @Html.DisplayFor(model => model.Name):</h3>
   <ul>
     @foreach(Client client in Model.Clients)
     {
@@ -23,8 +23,11 @@ else
 {
   <h3>There are no clients for this stylist.</h3>
 }
-
+<div class="link-card">
 <p>@Html.ActionLink("Edit stylist information", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete stylist profile", "Delete", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+</div>
+
+</div>
