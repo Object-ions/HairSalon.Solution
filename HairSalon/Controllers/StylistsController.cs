@@ -17,18 +17,21 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "Stylists";
       List<Stylist> stylists = _db.Stylists.ToList();
       return View(stylists);
     }
 
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Create Stylist";
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Stylist stylist)
     {
+      ViewBag.PageTitle = "Create Stylist";
       _db.Stylists.Add(stylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -36,6 +39,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Details(int id)
     {
+      ViewBag.PageTitle = "Stylist Details";
       Stylist thisStylist = _db.Stylists
                                   .Include(Stylist => Stylist.Clients)
                                   .FirstOrDefault(stylist => stylist.StylistId == id);
@@ -44,6 +48,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.PageTitle = "Edit Stylist";
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
@@ -51,6 +56,7 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Edit(Stylist stylist)
     {
+      ViewBag.PageTitle = "Edit Stylist";
       _db.Stylists.Update(stylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -58,11 +64,12 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
+      ViewBag.PageTitle = "Delete Stylist";
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
 
-    [HttpPost]
+    [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirm(int id)
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);

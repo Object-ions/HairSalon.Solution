@@ -110,7 +110,7 @@ a:hover {
   color: #f1f8ff;
 }
 
-input {
+select, input {
   border: 2px solid #f0f0f0;
   border-radius: 5px;
   padding: 10px;

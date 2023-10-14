@@ -14,17 +14,17 @@
 else
 {
   <ul>
-@foreach (Client client in Model)
-{
-  <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId }) - with @client.Stylist.Name</li>
-}
+    @foreach (Client client in Model)
+    {
+      <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId }) - with @client.Stylist.Name</li>
+    }
   </ul>
 }
 
 
 <div class="link-card">
-<p>@Html.ActionLink("Add new client", "Create")</p>
-<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
+  <p>@Html.ActionLink("Add new client", "Create")</p>
+  <p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
 </div>
 
 </div>

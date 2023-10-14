@@ -3,6 +3,7 @@ using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HairSalon.Controllers
 {
@@ -26,12 +27,18 @@ namespace HairSalon.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Client client)
     {
+      ViewBag.PageTitle = "Create New Clients";
+      if (client.StylistId == 0)
+      {
+        return RedirectToAction("Create");
+      }
       _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -39,6 +46,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Details(int id)
     {
+      ViewBag.PageTitle = "Client Details";
       Client thisClient = _db.Clients.Include(client => client.Stylist).FirstOrDefault(client => client.ClientId == id);
 
       return View(thisClient);
@@ -46,6 +54,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.PageTitle = "Edit Client";
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
@@ -53,6 +62,7 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Edit(Client client)
     {
+      ViewBag.PageTitle = "Edit Client";
       _db.Clients.Update(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -60,6 +70,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
+      ViewBag.PageTitle = "Delete Client";
       Client thisClient= _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
@@ -67,6 +78,7 @@ namespace HairSalon.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
+      ViewBag.PageTitle = "Delete Client";
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();

@@ -16,6 +16,7 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "Home";
       return View();
     }
   }
